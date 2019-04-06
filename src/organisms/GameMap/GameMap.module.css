@@ -1,0 +1,21 @@
+.gameMap {
+  margin: 0;
+  padding: 0;
+  background-color: #F0F0F0;
+  height: 100%;
+  overflow: auto;
+}
+
+.containerWrapper {
+  width: 3000px;
+  height: 3000px;
+  overflow: hidden;
+}
+
+.scrollContainer {
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  overflow: auto;
+  margin: 10px;
+  border: 1px solid grey;
+}

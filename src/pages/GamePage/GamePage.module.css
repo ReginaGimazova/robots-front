@@ -1,0 +1,10 @@
+.mapContainer {
+    height: 700px;
+    width: 1000px;
+    position: center;
+}
+
+.pageBody {
+    display: flex;
+    flex-direction: row;
+}

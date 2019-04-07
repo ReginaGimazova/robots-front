@@ -13,7 +13,7 @@ class Square extends Component{
         height={size}
         shadowBlur={5}
         fill={color}
-        opacity={0.4}
+        opacity={0.6}
       />
     );
   }

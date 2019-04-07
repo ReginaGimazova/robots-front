@@ -5,81 +5,91 @@ import {Layer, Stage} from "react-konva";
 
 const position = [
   {
-    x: 500,
-    y: 500,
+    x: 900,
+    y: 900,
   },
-
+  
   {
-    x: 2100,
-    y: 4100,
+    x: 1950,
+    y: 1600,
   },
-
+  
   {
-    x: 4100,
-    y: 3100
+    x: 900,
+    y: 1900
   }
 ];
 
 class GameMap extends Component {
   state = {
-    x: 0,
-    y: 0
+    stageScale: 1,
+    stageX: 0,
+    stageY: 0
   };
   
-  stageRef = React.createRef();
   
-  componentDidMount() {
-   
-    const scrollContainer = document.getElementById('scroll-container');
-    scrollContainer.addEventListener('scroll', function () {
-      let dx = scrollContainer.scrollLeft;
-      let dy = scrollContainer.scrollTop;
-      const container = document.getElementById('container');
-      container.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
-    /*  let stage = this.stageRef.current;
-      stage.x(-dx);
-      stage.y(-dy);
-      stage.batchDraw();*/
-      
-    })
-  }
-
-  
+  handleWheel = e => {
+    e.evt.preventDefault();
+    
+    const scaleBy = 1.01;
+    const stage = e.target.getStage();
+    const oldScale = stage.scaleX();
+    const mousePointTo = {
+      x: stage.getPointerPosition().x / oldScale - stage.x() / oldScale,
+      y: stage.getPointerPosition().y / oldScale - stage.y() / oldScale
+    };
+    
+    const newScale = e.evt.deltaY > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+    
+    stage.scale({x: newScale, y: newScale});
+    
+    this.setState({
+      stageScale: newScale,
+      stageX:
+          -(mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale,
+      stageY:
+          -(mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale
+    });
+  };
   
   render(){
-    const map_size = process.env.REACT_APP_SQUARE_SIZE * process.env.REACT_APP_SQUARES_IN_MAP;
-    const field_size = process.env.REACT_APP_SQUARE_SIZE * process.env.REACT_APP_SQUARES_IN_FIELD;
+    const mapSize = process.env.REACT_APP_SQUARE_SIZE * process.env.REACT_APP_SQUARES_IN_MAP;
     
     return (
-      <div className={styles.gameMap}>
-        <div className={styles.scrollContainer} id='scroll-container'>
-          <div className={styles.containerWrapper} id='container'>
-            <Stage
-                width={window.innerWidth}
-                height={window.innerHeight}
-                ref={this.stageRef}
-            >
-              <Layer>
-                <LocationField
-                    typeOfLocation="thunder"
-                    color="#6a497c"
-                    position={position[0]}
-                />
-                <LocationField
-                    typeOfLocation="jungle"
-                    color="#4d8e52"
-                    position={position[1]}
-                />
-                <LocationField
-                    typeOfLocation="desert"
-                    color="#f7b44a"
-                    position={position[2]}
-                />
-              </Layer>
-            </Stage>
+        <div className={styles.gameMap}>
+          <div className={styles.scrollContainer} id='scroll-container'>
+            <div className={styles.containerWrapper} id='container'>
+              <Stage
+                  width={mapSize}
+                  height={mapSize}
+                  onWheel={this.handleWheel}
+                  scaleY={1}
+                  scaleX={1}
+              >
+                <Layer
+                  width={mapSize}
+                  height={mapSize}
+                >
+                  <LocationField
+                      typeOfLocation="thunder"
+                      color="#6a497c"
+                      position={position[0]}
+                  />
+                  <LocationField
+                      typeOfLocation="jungle"
+                      color="#4d8e52"
+                      position={position[1]}
+                  />
+                  <LocationField
+                      typeOfLocation="desert"
+                      color="#f7b44a"
+                      position={position[2]}
+                  />
+                </Layer>
+              </Stage>
+            </div>
           </div>
         </div>
-      </div>
     )
   }
 }

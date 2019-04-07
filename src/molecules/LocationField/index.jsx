@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import * as Konva from 'konva';
-import ReactDom from 'react-dom';
 import {Group} from 'react-konva';
 import Square from '../../atoms/Square';
 

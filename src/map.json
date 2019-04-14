@@ -1,0 +1,74 @@
+{
+  "data": {
+    "squares-area": 50,
+    "squares-location": 25,
+    "desert": {
+      "position": [0, 0],
+      "loots": [
+        {
+          "id": 1,
+          "name": "fuel",
+          "position": [200, 300]
+        },
+        {
+          "id": 2,
+          "name": "grease",
+          "position": [400, 500]
+        }
+      ],
+      "hits": [
+        {
+          "id": 1,
+          "name": "overheat"
+        }
+      ]
+    },
+    "jungle": {
+      "position": [0, 550],
+      "loots": [
+        {
+          "id": 3,
+          "name": "machete",
+          "position": [350, 750]
+        },
+        {
+          "id": 4,
+          "name": "spear",
+          "position": [100, 800]
+        },
+        {
+          "id": 5,
+          "name": "whip",
+          "position": [50, 850]
+        }
+      ],
+      "hits": [
+        {
+          "id": 2,
+          "name": "corrosion"
+        }
+      ]
+    },
+    "electric_ground" : {
+      "position": [550, 0],
+      "loots": [
+        {
+          "id": 6,
+          "name": "armor",
+          "position": [430, 150]
+        },
+        {
+          "id": 7,
+          "name": "staff",
+          "position": [150, 280]
+        }
+      ],
+      "hits": [
+        {
+          "id": 3,
+          "name": "electricity"
+        }
+      ]
+    }
+  }
+}

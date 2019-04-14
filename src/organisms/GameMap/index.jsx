@@ -2,23 +2,12 @@ import React, {Component} from 'react';
 import LocationField from '../../molecules/LocationField';
 import styles from './GameMap.module.css';
 import {Layer, Stage} from "react-konva";
+import data from '../../map';
 
-const position = [
-  {
-    x: 900,
-    y: 900,
-  },
-  
-  {
-    x: 1950,
-    y: 1600,
-  },
-  
-  {
-    x: 900,
-    y: 1900
-  }
-];
+const position_desert = data['data']['desert'].position;
+const position_jungle = data['data']['jungle'].position;
+const position_electric = data['data']['electric_ground'].position;
+const squares_area = data['data']['squares-area'];
 
 class GameMap extends Component {
   state = {
@@ -53,7 +42,7 @@ class GameMap extends Component {
   };
   
   render(){
-    const mapSize = process.env.REACT_APP_SQUARE_SIZE * process.env.REACT_APP_SQUARES_IN_MAP;
+    const mapSize = process.env.REACT_APP_SQUARE_SIZE * squares_area;
     
     return (
         <div className={styles.gameMap}>
@@ -73,17 +62,17 @@ class GameMap extends Component {
                   <LocationField
                       typeOfLocation="thunder"
                       color="#6a497c"
-                      position={position[0]}
+                      position={position_electric}
                   />
                   <LocationField
                       typeOfLocation="jungle"
                       color="#4d8e52"
-                      position={position[1]}
+                      position={position_jungle}
                   />
                   <LocationField
                       typeOfLocation="desert"
                       color="#f7b44a"
-                      position={position[2]}
+                      position={position_desert}
                   />
                 </Layer>
               </Stage>

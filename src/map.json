@@ -1,9 +1,10 @@
 {
   "data": {
-    "squares-area": 50,
+    "squares-area": 60,
     "squares-location": 25,
     "desert": {
-      "position": [0, 0],
+      "nameOfLocation": "desert",
+      "position": [50, 50],
       "loots": [
         {
           "id": 1,
@@ -24,7 +25,8 @@
       ]
     },
     "jungle": {
-      "position": [0, 550],
+      "nameOfLocation": "jungle",
+      "position": [90, 500],
       "loots": [
         {
           "id": 3,
@@ -50,7 +52,8 @@
       ]
     },
     "electric_ground" : {
-      "position": [550, 0],
+      "nameOfLocation": "electric",
+      "position": [500, 100],
       "loots": [
         {
           "id": 6,

@@ -4,9 +4,7 @@ import styles from './GameMap.module.css';
 import {Layer, Stage} from "react-konva";
 import data from '../../map';
 
-const position_desert = data['data']['desert'].position;
-const position_jungle = data['data']['jungle'].position;
-const position_electric = data['data']['electric_ground'].position;
+
 const squares_area = data['data']['squares-area'];
 
 class GameMap extends Component {
@@ -15,7 +13,6 @@ class GameMap extends Component {
     stageX: 0,
     stageY: 0
   };
-  
   
   handleWheel = e => {
     e.evt.preventDefault();
@@ -43,7 +40,8 @@ class GameMap extends Component {
   
   render(){
     const mapSize = process.env.REACT_APP_SQUARE_SIZE * squares_area;
-    
+    const position = [0,0];
+  
     return (
         <div className={styles.gameMap}>
           <div className={styles.scrollContainer} id='scroll-container'>
@@ -60,19 +58,8 @@ class GameMap extends Component {
                   height={mapSize}
                 >
                   <LocationField
-                      typeOfLocation="thunder"
-                      color="#6a497c"
-                      position={position_electric}
-                  />
-                  <LocationField
-                      typeOfLocation="jungle"
-                      color="#4d8e52"
-                      position={position_jungle}
-                  />
-                  <LocationField
-                      typeOfLocation="desert"
-                      color="#f7b44a"
-                      position={position_desert}
+                    position={position}
+                    numOfSquares={squares_area}
                   />
                 </Layer>
               </Stage>

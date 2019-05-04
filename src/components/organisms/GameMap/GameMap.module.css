@@ -1,0 +1,13 @@
+.gameMap {
+  margin: 0;
+  padding: 0;
+  background-color: #404040;
+  height: 100%;
+  overflow: auto;
+}
+
+.containerWrapper {
+  width: 1000px;
+  height: 1000px;
+  overflow: hidden;
+}

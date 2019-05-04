@@ -1,10 +1,16 @@
-.mapContainer {
+.template {
+    height: 100%;
+    width: 100%;
+}
+
+.map__container{
     height: 1000px;
     width: 1000px;
     position: center;
+    margin-top: 50px;
 }
 
-.pageBody {
+.page__container {
     display: flex;
     flex-direction: row;
 }

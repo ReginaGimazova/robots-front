@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import LocationField from '../../molecules/LocationField';
 import styles from './GameMap.module.css';
 import {Layer, Stage} from "react-konva";
-import data from '../../map';
+import data from '../../../map';
 
 
 const squares_area = data['data']['squares-area'];
@@ -44,7 +44,6 @@ class GameMap extends Component {
   
     return (
         <div className={styles.gameMap}>
-          <div className={styles.scrollContainer} id='scroll-container'>
             <div className={styles.containerWrapper} id='container'>
               <Stage
                   width={mapSize}
@@ -63,7 +62,6 @@ class GameMap extends Component {
                   />
                 </Layer>
               </Stage>
-            </div>
           </div>
         </div>
     )

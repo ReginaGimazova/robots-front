@@ -1,0 +1,41 @@
+.template {
+    height: 100%;
+    width: 100%;
+}
+
+.menu__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 600px;
+    margin: auto;
+    padding-top: 100px;
+    
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.menu__item {
+    background-color: #305e35;
+    color: #DCDCDC;
+    height: 30px;
+    margin: 20px 0;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    border: 2px solid #8d8d8d;
+    border-radius: 10px;
+}
+
+.menu__title {
+    margin-bottom: 50px;
+    font-size: 40px;
+}

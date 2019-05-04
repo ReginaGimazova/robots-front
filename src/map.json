@@ -1,77 +1,69 @@
 {
   "data": {
-    "squares-area": 60,
-    "squares-location": 25,
+    "squares-area": 30,
+    "squares-location": 12,
+    "loots": [
+      {
+        "id": 1,
+        "name": "fuel",
+        "position": [64, 64]
+      },
+      {
+        "id": 2,
+        "name": "grease",
+        "position": [128, 256]
+      },
+      {
+        "id": 3,
+        "name": "machete",
+        "position": [256, 560]
+      },
+      {
+        "id": 4,
+        "name": "spear",
+        "position": [256, 640]
+      },
+      {
+        "id": 5,
+        "name": "whip",
+        "position": [128, 752]
+      },
+      {
+        "id": 6,
+        "name": "armor",
+        "position": [752, 128]
+      },
+      {
+        "id": 7,
+        "name": "staff",
+        "position": [640, 320]
+      }
+    ],
+    "hits": [
+      {
+        "id": 1,
+        "name": "overheat"
+      },
+      {
+        "id": 2,
+        "name": "corrosion"
+      },
+      {
+        "id": 3,
+        "name": "electricity"
+      }
+    ],
     "desert": {
       "nameOfLocation": "desert",
-      "position": [50, 50],
-      "loots": [
-        {
-          "id": 1,
-          "name": "fuel",
-          "position": [200, 300]
-        },
-        {
-          "id": 2,
-          "name": "grease",
-          "position": [400, 500]
-        }
-      ],
-      "hits": [
-        {
-          "id": 1,
-          "name": "overheat"
-        }
-      ]
+      "position": [50, 50]
     },
     "jungle": {
       "nameOfLocation": "jungle",
-      "position": [90, 500],
-      "loots": [
-        {
-          "id": 3,
-          "name": "machete",
-          "position": [350, 750]
-        },
-        {
-          "id": 4,
-          "name": "spear",
-          "position": [100, 800]
-        },
-        {
-          "id": 5,
-          "name": "whip",
-          "position": [50, 850]
-        }
-      ],
-      "hits": [
-        {
-          "id": 2,
-          "name": "corrosion"
-        }
-      ]
+      "position": [90, 500]
     },
     "electric_ground" : {
       "nameOfLocation": "electric",
-      "position": [500, 100],
-      "loots": [
-        {
-          "id": 6,
-          "name": "armor",
-          "position": [430, 150]
-        },
-        {
-          "id": 7,
-          "name": "staff",
-          "position": [150, 280]
-        }
-      ],
-      "hits": [
-        {
-          "id": 3,
-          "name": "electricity"
-        }
-      ]
+      "position": [500, 100]
     }
   }
 }

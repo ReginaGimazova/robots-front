@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Group} from 'react-konva';
 import Square from '../../atoms/Square';
-import data from '../../map';
+import GameIcon from '../../atoms/GameIcon';
+import data from '../../../map';
 
 const locations = [
   {
@@ -20,6 +21,10 @@ const locations = [
   },
 ];
 
+const loots = data['data']['loots'];
+
+const locationSizeInPixels = process.env.REACT_APP_SQUARE_SIZE * data['data']['squares-location'];
+
 class LocationField extends Component {
   
   renderPositions = (position, numOfSquares) => {
@@ -30,11 +35,12 @@ class LocationField extends Component {
     let color= '#F0F0F0';
   
     for (let i = 1; i <= numOfSquares; i ++) {
-      let yOfPartOfLocation = y + i * size/2;
+      let yOfPartOfLocation = y + i * size;
       for (let j = 1; j <= numOfSquares; j ++) {
-        let xOfPartOfLocation = x + j * size/2;
+        let xOfPartOfLocation = x + j * size;
         
         let typeOfLocation = this.checkLocations(xOfPartOfLocation, yOfPartOfLocation);
+        let lootName = this.checkIconPosition(xOfPartOfLocation, yOfPartOfLocation);
         
         switch (typeOfLocation) {
           case 'jungle':
@@ -49,9 +55,17 @@ class LocationField extends Component {
           case 'empty':
             color = '#F0F0F0';
         }
+        
         positions.push(
-            <Square position={{x: xOfPartOfLocation, y: yOfPartOfLocation }} color={color} width={size} height={size} />
-        );
+          <Square position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} color={color} />
+        )
+        
+        if (lootName !== ''){
+          positions.push(
+            <GameIcon position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} name={lootName}/>
+          )
+        }
+        
       }
     }
     return positions;
@@ -63,19 +77,19 @@ class LocationField extends Component {
     let typeOfLocation = '';
     
     let xStartOfDesert = locations[0].position[0];
-    let xEndOfDesert = locations[0].position[0] + 400;
+    let xEndOfDesert = locations[0].position[0] + locationSizeInPixels;
     let yStartOfDesert = locations[0].position[1];
-    let yEndOfDesert = locations[0].position[1] + 400;
+    let yEndOfDesert = locations[0].position[1] + locationSizeInPixels;
   
     let xStartOfElectric = locations[1].position[0];
-    let xEndOfElectric = locations[1].position[0] + 400;
+    let xEndOfElectric = locations[1].position[0] + locationSizeInPixels;
     let yStartOfElectric = locations[1].position[1];
-    let yEndOfElectric = locations[1].position[1] + 400;
+    let yEndOfElectric = locations[1].position[1] + locationSizeInPixels;
   
     let xStartOfJungle = locations[2].position[0];
-    let xEndOFJungle = locations[2].position[0] + 400;
+    let xEndOFJungle = locations[2].position[0] + locationSizeInPixels;
     let yStartOfJungle = locations[2].position[1];
-    let yEndOfJungle = locations[2].position[1] + 400;
+    let yEndOfJungle = locations[2].position[1] + locationSizeInPixels;
     
     if (x >= xStartOfDesert && x <= xEndOfDesert && y >= yStartOfDesert &&  y <= yEndOfDesert){
       typeOfLocation = 'desert';
@@ -95,9 +109,17 @@ class LocationField extends Component {
     return typeOfLocation;
   };
   
+  checkIconPosition = (x, y) => {
+    let lootName = '';
+    for (let loot of loots) {
+      if (x === loot.position[0] && y === loot.position[1]){
+        lootName = loot['name'];
+      }
+    }
+    return lootName;
+  };
   
   render() {
-    
     const { position, numOfSquares} = this.props;
     const fieldSize = process.env.REACT_APP_SQUARE_SIZE * numOfSquares;
     return (

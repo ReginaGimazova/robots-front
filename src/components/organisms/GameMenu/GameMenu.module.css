@@ -1,8 +1,27 @@
-menu {
-    width: 20%;
+.features__container {
+    width: 400px;
+    min-width: 300px;
+    margin-top: 40px;
 }
+
+section {
+    margin: 20px;
+    border: 5px solid #8d8d8d;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    padding: 0;
+}
+
 
 h2 {
     text-align: center;
     font-size: 26px;
+    color: #8d8d8d;
 }

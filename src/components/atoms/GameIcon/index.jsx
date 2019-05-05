@@ -14,7 +14,7 @@ class GameIcon extends Component{
             });
         };
         
-        image.src = require(`../../../images/${props.name}.png`);
+        image.src = props.enabled ? require(`../../../images/${props.name}.png`) : require(`../../../images/${props.name}_disabled.png`);
         image.width = 32;
         image.height = 32;
         

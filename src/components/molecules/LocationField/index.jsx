@@ -62,7 +62,7 @@ class LocationField extends Component {
         
         if (lootName !== ''){
           positions.push(
-            <GameIcon position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} name={lootName}/>
+            <GameIcon position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} name={lootName} enabled={true}/>
           )
         }
         

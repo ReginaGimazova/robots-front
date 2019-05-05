@@ -17,7 +17,6 @@ class GameIcon extends Component{
         image.src = require(`../../../images/${props.name}.png`);
         image.width = 32;
         image.height = 32;
-        image.color = 'black';
         
         this.state = {
             fillPatternImage: null

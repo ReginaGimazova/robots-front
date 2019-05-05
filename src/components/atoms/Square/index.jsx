@@ -9,8 +9,8 @@ class Square extends Component{
       <Rect
         x={position.x}
         y={position.y}
-        width={64}
-        height={64}
+        width={size}
+        height={size}
         shadowBlur={5}
         fill={color}
         opacity={0.6}

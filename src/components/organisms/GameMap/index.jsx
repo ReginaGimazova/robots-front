@@ -43,27 +43,26 @@ class GameMap extends Component {
     const position = [0,0];
   
     return (
-        <div className={styles.gameMap}>
-            <div className={styles.containerWrapper} id='container'>
-              <Stage
-                  width={mapSize}
-                  height={mapSize}
-                  onWheel={this.handleWheel}
-                  scaleY={1}
-                  scaleX={1}
-              >
-                <Layer
-                  width={mapSize}
-                  height={mapSize}
-                >
-                  <LocationField
-                    position={position}
-                    numOfSquares={squares_area}
-                  />
-                </Layer>
-              </Stage>
-          </div>
-        </div>
+      <div className={styles.gameMap}>
+        <Stage
+            width={mapSize}
+            height={mapSize}
+            x={0}
+            y={0}
+        >
+          <Layer
+            width={mapSize}
+            height={mapSize}
+            x={0}
+            y={0}
+          >
+            <LocationField
+              position={position}
+              numOfSquares={squares_area}
+            />
+          </Layer>
+        </Stage>
+      </div>
     )
   }
 }

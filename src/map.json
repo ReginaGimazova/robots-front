@@ -2,6 +2,7 @@
   "data": {
     "squares-area": 30,
     "squares-location": 12,
+    "health": 4,
     "loots": [
       {
         "id": 1,
@@ -11,27 +12,27 @@
       {
         "id": 2,
         "name": "grease",
-        "position": [128, 256]
+        "position": [192, 256]
       },
       {
         "id": 3,
         "name": "machete",
-        "position": [256, 560]
+        "position": [224, 576]
       },
       {
         "id": 4,
         "name": "spear",
-        "position": [256, 640]
+        "position": [320, 640]
       },
       {
         "id": 5,
         "name": "whip",
-        "position": [128, 752]
+        "position": [128, 736]
       },
       {
         "id": 6,
         "name": "armor",
-        "position": [752, 128]
+        "position": [576, 128]
       },
       {
         "id": 7,
@@ -55,15 +56,15 @@
     ],
     "desert": {
       "nameOfLocation": "desert",
-      "position": [50, 50]
+      "position": [32, 32]
     },
     "jungle": {
       "nameOfLocation": "jungle",
-      "position": [90, 500]
+      "position": [64, 512]
     },
     "electric_ground" : {
       "nameOfLocation": "electric",
-      "position": [500, 100]
+      "position": [448, 64]
     }
   }
 }

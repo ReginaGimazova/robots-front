@@ -34,9 +34,9 @@ class LocationField extends Component {
     const positions = [];
     let color= '#F0F0F0';
   
-    for (let i = 1; i <= numOfSquares; i ++) {
+    for (let i = 0; i <= numOfSquares; i ++) {
       let yOfPartOfLocation = y + i * size;
-      for (let j = 1; j <= numOfSquares; j ++) {
+      for (let j = 0; j <= numOfSquares; j ++) {
         let xOfPartOfLocation = x + j * size;
         
         let typeOfLocation = this.checkLocations(xOfPartOfLocation, yOfPartOfLocation);
@@ -58,7 +58,7 @@ class LocationField extends Component {
         
         positions.push(
           <Square position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} color={color} />
-        )
+        );
         
         if (lootName !== ''){
           positions.push(
@@ -77,19 +77,19 @@ class LocationField extends Component {
     let typeOfLocation = '';
     
     let xStartOfDesert = locations[0].position[0];
-    let xEndOfDesert = locations[0].position[0] + locationSizeInPixels;
+    let xEndOfDesert = locations[0].position[0] + locationSizeInPixels - 32;
     let yStartOfDesert = locations[0].position[1];
-    let yEndOfDesert = locations[0].position[1] + locationSizeInPixels;
+    let yEndOfDesert = locations[0].position[1] + locationSizeInPixels - 32;
   
     let xStartOfElectric = locations[1].position[0];
-    let xEndOfElectric = locations[1].position[0] + locationSizeInPixels;
+    let xEndOfElectric = locations[1].position[0] + locationSizeInPixels - 32;
     let yStartOfElectric = locations[1].position[1];
-    let yEndOfElectric = locations[1].position[1] + locationSizeInPixels;
+    let yEndOfElectric = locations[1].position[1] + locationSizeInPixels - 32;
   
     let xStartOfJungle = locations[2].position[0];
-    let xEndOFJungle = locations[2].position[0] + locationSizeInPixels;
+    let xEndOFJungle = locations[2].position[0] + locationSizeInPixels - 32;
     let yStartOfJungle = locations[2].position[1];
-    let yEndOfJungle = locations[2].position[1] + locationSizeInPixels;
+    let yEndOfJungle = locations[2].position[1] + locationSizeInPixels - 32;
     
     if (x >= xStartOfDesert && x <= xEndOfDesert && y >= yStartOfDesert &&  y <= yEndOfDesert){
       typeOfLocation = 'desert';

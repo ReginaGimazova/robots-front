@@ -11,9 +11,9 @@ const MenuPage = () => (
                 МЕНЮ
             </h1>
             <div className={styles.menu}>
-                <Link to='/game' className={styles.menu__item}>Начать игру</Link>
-                <Link to='#' className={styles.menu__item}>Создать робота</Link>
-                <Link to='#' className={styles.menu__item}>Помощь</Link>
+                <Link to='/game' className={styles.menu__item}>НАЧАТЬ ИГРУ</Link>
+                <Link to='#' className={styles.menu__item}>СОЗДАТЬ РОБОТА</Link>
+                <Link to='#' className={styles.menu__item}>ПОМОЩЬ</Link>
             </div>
         </div>
     </div>

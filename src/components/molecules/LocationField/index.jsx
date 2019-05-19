@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Group} from 'react-konva';
 import Square from '../../atoms/Square';
 import GameIcon from '../../atoms/GameIcon';
+import RobotIcon from '../../atoms/RobotIcon';
 import data from '../../../map';
 
 const locations = [
@@ -22,6 +23,7 @@ const locations = [
 ];
 
 const loots = data['data']['loots'];
+const robots = data['data']['robots'];
 
 const locationSizeInPixels = process.env.REACT_APP_SQUARE_SIZE * data['data']['squares-location'];
 
@@ -41,6 +43,7 @@ class LocationField extends Component {
         
         let typeOfLocation = this.checkLocations(xOfPartOfLocation, yOfPartOfLocation);
         let lootName = this.checkIconPosition(xOfPartOfLocation, yOfPartOfLocation);
+        let robotIsHere = this.checkRobotPosition(xOfPartOfLocation, yOfPartOfLocation);
         
         switch (typeOfLocation) {
           case 'jungle':
@@ -55,6 +58,7 @@ class LocationField extends Component {
           case 'empty':
             color = '#F0F0F0';
         }
+  
         
         positions.push(
           <Square position={{x: xOfPartOfLocation, y: yOfPartOfLocation}} color={color} />
@@ -66,6 +70,12 @@ class LocationField extends Component {
           )
         }
         
+        if (robotIsHere) {
+          positions.push(
+              <RobotIcon position={{x: xOfPartOfLocation, y: yOfPartOfLocation}}/>
+          )
+        }
+       
       }
     }
     return positions;
@@ -117,6 +127,17 @@ class LocationField extends Component {
       }
     }
     return lootName;
+  };
+  
+  checkRobotPosition = (x, y) => {
+    let isHere = false;
+    for (let robot of robots) {
+      if (x === robot.position[0] && y === robot.position[1]) {
+        isHere = true
+      }
+    };
+    
+    return isHere
   };
   
   render() {

@@ -65,19 +65,19 @@ class GameMenu extends Component {
         return(
             <div className={styles.features__container}>
                 <section>
-                    <h2>Здоровье</h2>
+                    <h2>ЗДОРОВЬЕ</h2>
                     <ul className={styles.list}>
                         {this.renderHealth()}
                     </ul>
                 </section>
                 <section>
-                    <h2>Предметы</h2>
+                    <h2>ПРЕДМЕТЫ</h2>
                     <ul className={styles.list}>
                         {this.renderLoots()}
                     </ul>
                 </section>
                 <section>
-                    <h2>Ловушки</h2>
+                    <h2>ЛОВУШКИ</h2>
                     <ul className={styles.list}>
                         {this.renderHits()}
                     </ul>

@@ -1,12 +1,12 @@
 .features__container {
     width: 400px;
     min-width: 300px;
-    margin-top: 40px;
+    margin: 40px 100px;
 }
 
 section {
     margin: 20px;
-    border: 5px solid #8d8d8d;
+    border: 3px solid #8d8d8d;
 }
 
 .list {
@@ -22,6 +22,7 @@ ul {
 
 h2 {
     text-align: center;
-    font-size: 26px;
+    font-size: 22px;
     color: #8d8d8d;
+    font-weight: 400;
 }
